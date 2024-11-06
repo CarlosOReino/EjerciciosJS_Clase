@@ -4,20 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 1</title>
 </head>
 
 <body>
     <script>
         let miArr = [4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1];
+        miArr.sort();
+        console.log("Array ordenado y con números duplicados: " + miArr);
         let arrNuevo = [];
         
-        for (let i = 0; i < miArr.length; i++) {
+        /*for (let i = 0; i < miArr.length; i++) {
             if (!arrNuevo.includes(miArr[i])) {
                 arrNuevo.push(miArr[i]);
             }
-        }
-        console.log("Array con números dubplicados: " + miArr);
+        }*/
+       for (let i in miArr) {
+        if (!arrNuevo.includes(miArr[i])) {
+            arrNuevo.push(miArr[i]);
+       }}
+        
         console.log("Array sin números duplicados: " + arrNuevo);
     </script>
 </body>
