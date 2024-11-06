@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Introduzca su fecha de nacimiento</p>
+    <label for="">Año:</label><input type="number" name="nacimiento"><br>
+    <label for="">Mes:</label><input type="number" name="nacimiento"><br>
+    <label for="">Día:</label><input type="number" name="nacimiento"><br>
+    <input type="button" value="Comprobar" onclick="mayordeedad();">
+
+    <script>
+        let hoy = Date.now();
+        let coleccion = document.getElementsByName("nacimiento");
+        function mayordeedad(){
+            let fechacliente = new Date(coleccion[0].value,coleccion[1].value,coleccion[2].value);
+            let diferencia = hoy - fechacliente.getTime()/86400000;
+            //let diascliente = diferencia/86400000;
+            //alert(diascliente);
+            if(diferencia > 6574 ){
+                alert("puedes entrar");
+
+            }else if(diferencia < 6574){
+                alert("eres menor no puedes entrar");
+            }
+        }
+    </script>
+</body>
+</html>

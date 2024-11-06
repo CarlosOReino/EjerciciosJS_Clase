@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USANDO BUCLES</title>
+  </head>
+  <body>
+    <h3>CONFIGURA TU CONTADOR</h3>
+    <label for="">INICIO: </label>
+    <input type="number" name="configurador" /><br /><br />
+
+    <label for="">FIN: </label>
+    <input type="number" name="configurador" /><br /><br />
+
+    <label for="">INCREMENTO: </label>
+    <input type="number" name="configurador" /><br /><br />
+
+    <input type="button" value="A CONTAR" onclick="aContar();" />
+    <input type="button" value="Limpiar" onclick="limpiarContador();" />
+
+    <h3>VISUALIZADOR</h3>
+    <textarea id="salida" rows="10" cols="35"></textarea>
+
+    <script>
+      let datos;
+      let salida;
+      function aContar() {
+        datos = document.getElementsByClassName("configurador");
+        salida = document.getElementById("salida");
+        let inicio = parseInt(datos[0].value);
+        let fin = parseInt(datos[1].value);
+        let incremento = parseInt(datos[2].value);
+        let resultado ="";
+        for (let i = inicio; i <= fin; i += incremento) {
+          resultado += i + " ";
+        }
+        salida.value = resultado;
+      }
+
+      function limpiarContador() {
+        return (salida.value = " ");
+      }
+    </script>
+  </body>
+</html>
