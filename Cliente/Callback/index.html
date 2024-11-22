@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <h3>Controlador imagen</h3>
+    <img src="sel-esp.png" alt="" id="img0">
+    <script>
+      let ctlimg = document.getElementById("img0");
+    //   let temporizador = window.setTimeout(carga, 4000);
+    let temporizador = window.setInterval(carga, 4000);
+      function carga(params) {
+        ctlimg.src= "alemana.png";
+       // clearTimeout(temporizador)
+      }
+    </script>
+  </body>
+</html>
