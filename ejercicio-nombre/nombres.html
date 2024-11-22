@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Nombre: <input type="text" id="textusu"></label>
+    <p>
+        <label for="">Lista: </label><br>
+        <textarea name="" id="nombres"></textarea>
+    </p>
+    <button onclick="nombreAdd()">Añadir</button>
+    <button onclick="eliminarNom()">Eliminar</button>
+    <button onclick="verNombres()">Visualizar</button>
+    <script>
+        let textUsu = document.getElementById("textusu");
+        let lista = document.getElementById("nombres");
+        let nombres = [];
+        //Añadir nombres
+        function nombreAdd() {
+            let valor = textUsu.value;
+            if (valor){
+                nombres.push();
+                console.log(nombres)
+            }
+        }
+        //Elimnar nombres
+        function eliminarNom() {
+            return (lista.value = " ");
+        }
+        //Ver los nombres
+        function verNombres() {
+            
+
+        }
+    </script>
+</body>
+</html>

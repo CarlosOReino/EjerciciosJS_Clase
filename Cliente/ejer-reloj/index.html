@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        text-align: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 200px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      #hora,
+      #min,
+      #sec {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      #hora::after,
+      #min::after {
+        content: ":";
+      }
+    </style>
+  </head>
+  <body>
+    <p id="hora"></p>
+    <p id="min"></p>
+    <p id="sec"></p>
+
+    <script>
+      let horaUs = document.getElementById("hora");
+      let minUs = document.getElementById("min");
+      let secUs = document.getElementById("sec");
+      setInterval(hora, 1000);
+      function hora() {
+        let date = new Date();
+        horaUs.innerHTML = date.getHours();
+        minUs.innerHTML = date.getMinutes();
+        secUs.innerHTML = date.getSeconds();
+      }
+    </script>
+  </body>
+</html>
