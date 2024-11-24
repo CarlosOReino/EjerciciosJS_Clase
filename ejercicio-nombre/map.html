@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio con Map</title>
+  </head>
+  <body>
+    <h1>Ejercicio con Map</h1>
+
+    <!-- Formulario para añadir elementos -->
+    <h3>Añadir un par clave-valor al Mapa</h3>
+    <label for="clave">Clave:</label>
+    <input type="text" id="clave" placeholder="Escribe una clave" />
+    <label for="valor">Valor:</label>
+    <input type="text" id="valor" placeholder="Escribe un valor" />
+    <button onclick="agregarPar()">Añadir</button>
+    <p id="mensaje"></p>
+
+    <!-- Buscar clave -->
+    <h3>Buscar clave en el Mapa</h3>
+    <label for="buscarClave">Clave a buscar:</label>
+    <input type="text" id="buscarClave" placeholder="Escribe una clave" />
+    <button onclick="buscarClave()">Buscar</button>
+    <p id="resultadoBusqueda"></p>
+
+    <!-- Mostrar contenido del Mapa -->
+    <h3>Contenido del Mapa</h3>
+    <button onclick="mostrarContenido()">Mostrar Claves y Valores</button>
+    <p id="contenidoMapa"></p>
+
+    <!-- Convertir Mapa a Array -->
+    <h3>Convertir Mapa a Array</h3>
+    <button onclick="convertirAMapaArray()">Convertir y Mostrar</button>
+    <p id="mapaArray"></p>
+
+    <!-- Recorrer Claves y Valores -->
+    <h3>Recorrer Claves y Valores</h3>
+    <button onclick="recorrerClaves()">Recorrer Claves</button>
+    <p id="clavesMapa"></p>
+    <button onclick="recorrerValores()">Recorrer Valores</button>
+    <p id="valoresMapa"></p>
+
+    <script>
+      // Inicializar el Mapa con un Array
+      let pcv = new Map([
+        ["yo", 1],
+        ["tu", 2],
+        ["el", 3],
+      ]);
+
+      // Función para agregar un par clave-valor
+      function agregarPar() {
+        let clave = document.getElementById("clave").value.trim();
+        let valor = document.getElementById("valor").value.trim();
+
+        if (clave === "" || valor === "") {
+          document.getElementById("mensaje").textContent =
+            "Por favor, ingresa una clave y un valor.";
+          return;
+        }
+
+        pcv.set(clave, valor);
+        document.getElementById(
+          "mensaje"
+        ).textContent = `Añadido: ${clave} => ${valor}`;
+      }
+
+      // Función para buscar una clave en el Mapa
+      function buscarClave() {
+        let clave = document.getElementById("buscarClave").value.trim();
+
+        if (pcv.has(clave)) {
+          document.getElementById(
+            "resultadoBusqueda"
+          ).textContent = `La clave "${clave}" está en el Mapa con valor: ${pcv.get(
+            clave
+          )}.`;
+        } else {
+          document.getElementById(
+            "resultadoBusqueda"
+          ).textContent = `La clave "${clave}" no está en el Mapa.`;
+        }
+      }
+
+      // Función para mostrar el contenido del Mapa
+      function mostrarContenido() {
+        let contenido = "";
+        for (let [clave, valor] of pcv) {
+          contenido += `${clave} => ${valor}\n`;
+        }
+        document.getElementById("contenidoMapa").textContent =
+          contenido || "El Mapa está vacío.";
+      }
+
+      // Función para convertir el Mapa a Array
+      function convertirAMapaArray() {
+        let mapaComoArray = [...pcv];
+        document.getElementById("mapaArray").textContent =
+          JSON.stringify(mapaComoArray);
+      }
+
+      // Función para recorrer y mostrar claves
+      function recorrerClaves() {
+        let claves = pcv.keys();
+        let resultado = "";
+        for (let clave of claves) {
+          resultado += `${clave}\n`;
+        }
+        document.getElementById("clavesMapa").textContent =
+          resultado || "No hay claves en el Mapa.";
+      }
+
+      // Función para recorrer y mostrar valores
+      function recorrerValores() {
+        let valores = pcv.values();
+        let resultado = "";
+        for (let valor of valores) {
+          resultado += `${valor}\n`;
+        }
+        document.getElementById("valoresMapa").textContent =
+          resultado || "No hay valores en el Mapa.";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+        position:fixed;
+        width:50px;
+        height:50px;
+        }
+        </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        function generarColorAleatorio() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Crear 2000 cuadrados
+        for (let i = 0; i < 2000; i++) {
+            // Crear un nuevo div
+            let cuadrado = document.createElement("div");
+
+            // Generar posición aleatoria
+            let posX = Math.random() * window.innerWidth;
+            let posY = Math.random() * window.innerHeight;
+
+            // Asignar estilo al cuadrado
+            cuadrado.style.backgroundColor = generarColorAleatorio();
+            cuadrado.style.left = `${posX}px`;
+            cuadrado.style.top = `${posY}px`;
+
+            // Añadir el cuadrado al body
+            document.body.appendChild(cuadrado);
+        }
+    </script>
+</body>
+</html>
