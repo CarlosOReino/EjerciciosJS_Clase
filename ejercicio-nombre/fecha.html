@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Día:</label>
+    <input type="text" name="dia">
+    <br>
+    <br>
+    <label for="">Mes:</label>
+    <input type="text" name="mes">
+    <br>
+    <br>
+    <label for="">Año:</label>
+    <input type="text" name="year">
+    <br>
+    <br>
+    <input type="button" value="Obtener" onclick="verDia();">
+    <span id="ver"></span>
+    <script>
+        let usuDia = document.getElementsByName("dia")[0]
+        let usuMes = document.getElementsByName("mes")[0]
+        let usuYear = document.getElementsByName("year")[0]
+
+        function verDia() {
+           let enteroDia = parseInt(usuDia.value);
+           let enteroMes = parseInt(usuMes.value);
+           let enteroYear = parseInt(usuYear.value);
+           
+           let diasSemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
+           let fecha = new Date (enteroYear, enteroMes -1, enteroDia);
+           let diaSemana = fecha.getDay();
+           let nombreDia = diasSemana[diaSemana];
+           document.getElementById("ver").textContent = `Naciste un ${nombreDia}.`
+           document.getElementById("ver").style.color = "green"
+        }
+    </script>
+</body>
+</html>

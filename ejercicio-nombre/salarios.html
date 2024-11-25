@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="fname">Nombre:</label><br />
+      <input type="text" id="nombre" /><br />
+      <label for="lname">Apellidos:</label><br />
+      <input type="text" id="apellidos" /><br /><br />
+      <label for="lname">Salario:</label><br />
+      <input type="text" id="salario" /><br /><br />
+      <label for="lname">Edad:</label><br />
+      <input type="text" id="edad" /><br /><br />
+      <input
+        type="button"
+        value="Obtener"
+        onclick="calcularSalario();"
+      /><br /><br />
+      <span id="resultado"></span>
+    </form>
+    <script>
+      function calcularSalario() {
+        let nombreUsu = document.getElementById("nombre").value;
+        let apellidoUsu = document.getElementById("apellidos").value;
+        let salarioUsu = parseFloat(document.getElementById("salario").value);
+        let edadUsu = parseInt(document.getElementById("edad").value);
+
+        // Cálculo del salario según las condiciones
+        if (salarioUsu > 2000) {
+          // Salario mayor a 2000 no cambia
+        } else if (salarioUsu >= 1000 && salarioUsu <= 2000) {
+          if (edadUsu > 45) {
+            salarioUsu *= 1.03; // Aumenta un 3%
+          } else {
+            salarioUsu *= 1.1; // Aumenta un 10%
+          }
+        } else if (salarioUsu < 1000) {
+          if (edadUsu < 30) {
+            salarioUsu = 1100; // Se asigna directamente 1100
+          } else if (edadUsu >= 30 && edadUsu <= 45) {
+            salarioUsu *= 1.03; // Aumenta un 3%
+          } else if (edadUsu > 45) {
+            salarioUsu *= 1.15; // Aumenta un 15%
+          }
+        }
+
+        document.getElementById(
+          "resultado"
+        ).textContent = `Nombre: ${nombreUsu} ${apellidoUsu}, Edad: ${edadUsu}, Salario Recalculado: ${salarioUsu.toFixed(
+          2
+        )}`;
+      }
+    </script>
+  </body>
+</html>

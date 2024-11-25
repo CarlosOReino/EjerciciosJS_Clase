@@ -26,8 +26,8 @@ function addNumeros() {
     entradaUsu.value="";
     
     if (contador === 0) {
-        add.style.display = "none";  // Ocultamos el botón "Añadir"
-        span.textContent = "Ya has ingresado 10 números."; // Cambiamos el mensaje
+        add.style.display = "none"; 
+        span.textContent = "Ya has ingresado 10 números."; 
     }
 
 }
