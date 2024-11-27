@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Visualizar Números Primos</h1>
+    <button id="btnCalcular">Calcular Primos</button>
+    <textarea id="textareaPrimos" readonly></textarea>
+
+    <script>
+        // Referencia al botón y al textarea
+const btnCalcular = document.getElementById('btnCalcular');
+const textareaPrimos = document.getElementById('textareaPrimos');
+
+// Función para determinar si un número es primo
+function esPrimo(numero) {
+    if (numero < 2) return false; // Los números menores a 2 no son primos
+    for (let i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i === 0) return false; // Si tiene divisores, no es primo
+    }
+    return true;
+}
+
+// Función para calcular y mostrar números primos
+function calcularPrimos() {
+    // Crear un array con los números del 1 al 500
+    const numeros = [];
+    for (let i = 1; i <= 500; i++) {
+        numeros.push(i);
+    }
+
+    // Filtrar los números primos
+    const primos = numeros.filter(esPrimo);
+
+    // Formatear la salida: 15 números por fila
+    let salida = "";
+    let contadorFila = 0;
+
+    for (let i = 0; i < primos.length; i++) {
+        salida += primos[i]; // Añadir el número primo
+
+        contadorFila++;
+        if (contadorFila === 15) {
+            salida += "\n"; // Saltar de línea después de 15 números
+            contadorFila = 0;
+        } else {
+            salida += " "; // Añadir un espacio entre números
+        }
+    }
+
+    // Mostrar en el textarea
+    textareaPrimos.value = salida;
+}
+
+// Asignar la función al botón (sin addEventListener)
+btnCalcular.onclick = calcularPrimos;
+
+    </script>
+</body>
+</html>
