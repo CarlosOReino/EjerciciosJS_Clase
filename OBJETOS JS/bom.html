@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="retroceder">retroceder</button>
+    <button id="avanzar">avanzar</button>
+    <script>
+        // back y forward
+document.getElementById("retroceder").onclick = () => history.back();
+document.getElementById("avanzar").onclick = () => history.forward();
+
+// go
+history.go(-1); // Retrocede una página
+history.go(1);  // Avanza una página
+
+    </script>
+</body>
+</html>
