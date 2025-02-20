@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+        }
+        .contador {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <label for="numero">Introduce un número:</label>
+    <input type="number" id="numero" placeholder="Escribe un número">
+    <button id="btnAgregar">Añadir</button>
+    
+    <div class="contador">
+        <p>Números restantes: <span id="contador">10</span></p>
+    </div>
+    
+    <button id="btnVisualizar">Visualizar</button>
+
+    <h2>Números pares:</h2>
+    <textarea id="textareaPares" readonly></textarea>
+
+    <h2>Números impares:</h2>
+    <textarea id="textareaImpares" readonly></textarea>
+
+    <script>
+       // Variables para almacenar los números y el límite máximo
+let numeros = new Set();
+const maxNumeros = 10;
+
+// Elementos del DOM
+const inputNumero = document.getElementById('numero');
+const btnAgregar = document.getElementById('btnAgregar');
+const btnVisualizar = document.getElementById('btnVisualizar');
+const contadorSpan = document.getElementById('contador');
+const textareaPares = document.getElementById('textareaPares');
+const textareaImpares = document.getElementById('textareaImpares');
+
+// Función para agregar números
+function agregarNumero() {
+    const numero = parseInt(inputNumero.value);
+
+    if (isNaN(numero)) {
+        alert("Por favor, introduce un número válido.");
+        return;
+    }
+
+    if (numeros.size >= maxNumeros) {
+        alert("Ya se ha alcanzado el máximo de números permitidos.");
+        return;
+    }
+
+    if (numeros.has(numero)) {
+        alert("El número ya ha sido introducido.");
+        return;
+    }
+
+    // Agregar número al conjunto
+    numeros.add(numero);
+    // Actualizar el contador
+    contadorSpan.textContent = maxNumeros - numeros.size;
+    // Limpiar el input
+    inputNumero.value = "";
+}
+
+// Función para visualizar números pares e impares
+function visualizarNumeros() {
+    if (numeros.size < maxNumeros) {
+        alert("Aún no has introducido los 10 números.");
+        return;
+    }
+
+    // Filtrar números pares e impares
+    const pares = Array.from(numeros).filter(esPar);
+    const impares = Array.from(numeros).filter(esImpar);
+
+    // Mostrar los resultados en los textareas
+    textareaPares.value = pares.join(", ");
+    textareaImpares.value = impares.join(", ");
+}
+
+// Función callback para verificar si un número es par
+function esPar(numero) {
+    return numero % 2 === 0;
+}
+
+// Función callback para verificar si un número es impar
+function esImpar(numero) {
+    return numero % 2 !== 0;
+}
+
+
+btnAgregar.onclick = agregarNumero;
+btnVisualizar.onclick = visualizarNumeros;
+
+
+    </script>
+</body>
+</html>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="contador" readonly>
+    <button id="miButton">pulsa</button>
+
+    <script>
+        document.addEventListener('readystatechange', function() {
+            if (document.readyState === 'complete') {
+                let count = 0;
+                const button = document.getElementById('miButton');
+                const input = document.getElementById('contador');
+
+                button.addEventListener('click', function() {
+                    count++;
+                    input.value = count;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

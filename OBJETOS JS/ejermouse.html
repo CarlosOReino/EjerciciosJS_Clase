@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mover" style="width: 200px; height: 200px; background-color: lightblue;">
+        <h3>Pasa el mouse por aquí!</h3>
+    </div>
+
+    <script>
+        const hoverDiv = document.getElementById('mover');
+
+        hoverDiv.onmouseover = function() {
+            mover.style.backgroundColor = 'green';
+            mover.style.color = 'white';
+        };
+
+        hoverDiv.onmouseout = function() {
+            mover.style.backgroundColor = 'lightblue';
+            mover.style.color = 'black';
+        };
+    </script>
+</body>
+</html>

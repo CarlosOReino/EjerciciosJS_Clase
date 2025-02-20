@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenador Info</title>
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .images {
+            margin-top: 20px;
+        }
+        .images img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+    </style> -->
+</head>
+<body>
+    <h1>Información del Ordenador</h1>
+    <div class="form-container">
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" placeholder="Ingresa la marca">
+        </div>
+        <div class="form-group">
+            <label for="modelo">Modelo</label>
+            <input type="text" id="modelo" placeholder="Ingresa el modelo">
+        </div>
+        <div class="form-group">
+            <label for="ram">Memoria RAM (GB)</label>
+            <input type="number" id="ram" placeholder="Ingresa la RAM">
+        </div>
+        <div class="form-group">
+            <label for="sd">Capacidad de SD (GB)</label>
+            <input type="number" id="sd" placeholder="Ingresa la capacidad de la SD">
+        </div>
+        <div class="form-group">
+            <label for="microprocesador">Microprocesador</label>
+            <input type="text" id="microprocesador" placeholder="Ingresa el modelo del microprocesador">
+        </div>
+        <div class="form-group">
+            <label for="grafica">Gráfica</label>
+            <input type="text" id="grafica" placeholder="Ingresa el modelo de la gráfica">
+        </div>
+        <button onclick="guardarOrdenador()">Añadir</button>
+        <button onclick="consultarOrdenador()">Consultar</button>
+        <button onclick="eliminarOrdenador()">Eliminar</button>
+        <button onclick="borrarCampos()">Borrar Campos</button>
+    </div>
+
+    <div class="output" id="output"></div>
+
+    <script>
+        
+        let ordenador = {
+            
+        };
+
+        function guardarOrdenador() {
+            
+            ordenador.marca = document.getElementById('marca').value;
+            ordenador.modelo = document.getElementById('modelo').value;
+            ordenador.ram = document.getElementById('ram').value;
+            ordenador.sd = document.getElementById('sd').value;
+            ordenador.microprocesador = document.getElementById('microprocesador').value;
+            ordenador.grafica = document.getElementById('grafica').value;
+
+            
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = `Ordenador: Marca - ${ordenador.marca}, Modelo - ${ordenador.modelo}, RAM - ${ordenador.ram}GB, SD - ${ordenador.sd}GB, Microprocesador - ${ordenador.microprocesador}, Gráfica - ${ordenador.grafica}`;
+            ordenador.push()
+            
+        }
+    </script>
+</body>
+</html>

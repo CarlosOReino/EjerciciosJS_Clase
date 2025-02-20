@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de Teclado</title>
+    <script>
+        function setupEventListeners() {
+            const nombreInput = document.getElementById('nombre');
+            const passwordInput = document.getElementById('password');
+
+            nombreInput.addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) { 
+                    event.preventDefault();
+                    passwordInput.focus();
+                }
+            });
+
+            passwordInput.addEventListener('keydown', function(event) {
+                if (event.keyCode === 13) { 
+                    event.preventDefault();
+                    Transmision();
+                }
+            });
+        }
+
+        function Transmision() {
+            alert('Iniciando transmisión');
+        }
+
+        window.onload = setupEventListeners;
+    </script>
+</head>
+<body>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password"><br><br>
+    </form>
+</body>
+</html>
