@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso Fetch sobre fichero de texto 1</title>
+<script>
+var presentacion;
+var boton;
+
+async function enviopeticion(){
+	const response=await fetch('fetch_info.txt',{
+		method:'GET'
+	})
+  const datos=await response.text();
+  alert(response.status + 'y' + response.ok);
+  if (response.status == 200){
+	  presentacion.innerHTML = datos;
+  }else{
+    throw new Error("WARN",response.status);
+  }
+}
+
+function inicializar(){
+  if (document.readyState == 'complete') {
+	  presentacion = document.getElementById('capa');
+	  boton = document.getElementById('cambiar');
+	  boton.addEventListener('click', enviopeticion, false);
+	}
+}
+document.addEventListener('readystatechange',inicializar, false);
+</script>
+</head>
+<body>
+
+<div id="capa"><h2>Deja a FETCH que cambie el texto</h2></div>
+<button type="button" id='cambiar'>Cambiar contenido</button>
+
+</body>
+</html>

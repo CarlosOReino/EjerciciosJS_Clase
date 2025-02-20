@@ -1,0 +1,5 @@
+La API Fetch proporciona una interfaz JavaScript para acceder y manipular partes del canal HTTP,</br></br>
+
+tales como peticiones y respuestas. También provee un método global fetch() (en-US) </br></br>
+
+que proporciona una forma fácil y lógica de obtener recursos de forma asíncrona por la red.</br></br>

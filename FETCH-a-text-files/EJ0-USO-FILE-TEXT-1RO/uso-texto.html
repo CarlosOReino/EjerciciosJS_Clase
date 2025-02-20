@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso Fetch sobre fichero de texto 0</title>
+<script>
+
+var xhr;
+var presentacion;
+var boton;
+
+async function enviopeticion(){
+	const response=await fetch('saludo.txt',{
+		method:'GET'
+	})
+	const datos=await response.text();
+	presentacion.innerHTML = datos;
+}
+
+function inicializar(){
+if (document.readyState == 'complete') {
+	presentacion = document.getElementById('capa');
+	boton = document.getElementById('cambiar');
+	boton.addEventListener('click', enviopeticion, false);
+	
+	}
+
+
+}
+
+document.addEventListener('readystatechange',inicializar, false);
+</script>
+</head>
+<body>
+
+<div id="capa"><h2>Cambia el texto pulsando sobre el botón</h2></div>
+<button id="cambiar" type="button">Cambia contenido</button>
+
+</body>
+</html>
